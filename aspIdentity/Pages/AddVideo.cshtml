@@ -1,0 +1,37 @@
+﻿@page
+@model aspIdentity.Pages.AddVideoModel
+@{
+}
+<h1>Бичлэгэн файл нэмэх</h1>
+<div class="container">
+    <div class="col-sm-12 col-md-12 col-lg-4">
+        <a asp-page="VideoCollection" class="link" >Бичлэгнүүдийн цуглуулга руу буцах</a>
+        <br/>
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">Бичлэгний нарчиг</label>
+                <input class="form-control" type="text" asp-for="Model.Title" />
+                <span class="text-danger" asp-validation-for="Model.Title"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Бичлэгний файл оруулах хэсэг</label>
+                <input id="VideoFileInput" class="form-control" type="file" asp-for="Model.VideoFile" />
+                <span class="text-danger" asp-validation-for="Model.VideoFile"></span>
+                <div class="mt-2">
+                    <label class="form-label" id="isVideoFile" style="display:none;"></label>
+                    <label class="form-label" id="fileSizeShower" style="display:none;"></label>
+                    <label class="form-label" id="fileAdditionalInfo" style="display:none;"></label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" asp-for="Model.Description" id="TextAreaInput" 
+                rows="5" placeholder="Бичлэгний тайлбар бичих хэсэг"></textarea>
+            </div>
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary" asp-page-handler="SaveVideo" id="saveBtn">Бичлэг хадгалах</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/js/AddVideoPage.js"></script>

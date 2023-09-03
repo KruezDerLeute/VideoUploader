@@ -1,0 +1,43 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity;
+@using System.Security.Claims;
+@using aspIdentity.Data.Model;
+@model aspIdentity.Pages.VideoPlayerModel
+@inject SignInManager<AppUser> SignInUser
+@{
+}
+<html>
+    <head>
+        <script src="~/js/MediaFilePlayer.js" defer></script>
+        <link href="~/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="~/CustomCss/style.css" rel="stylesheet"/>
+    </head>
+    <body style="display:grid;margin-bottom:500px;">
+        
+        <div class="container" id="videoContainer" style="display:grid; justify-content:center; margin-top:0px; height:700px;">
+        @if (SignInUser.IsSignedIn(User))
+            {
+                <div id="EditingSection" class="mb-2">
+                    <button class="btn btn-primary" id="editBtn">Засварлах</button>
+                    <button class="btn btn-danger" id="deleteBtn">Устгах</button>
+                </div>
+            }
+            <div class="mb-4 mt-3" id="videoInfoSection">
+                <p id="TitleEl" class="form-label" style="font-size:37px; font-weight:600;"></p>
+                <p id="DescriptionEl" class="form-label" style="font-size:18px;"></p>
+            </div>
+
+            <form id="inputAndBtn" class="inputAndBtn" style="align-self:start" method="post">
+                <input id="idContainer" style="display:none;" name="idContainer"/>
+                <input id="youtubeLinkChecker" style="display:none;" name="isYoutubeLink" />
+                <input id="commentInput" class="form-control" placeholder="Сэтгэгдэл бичих хэсэг" name="commentInput"/>
+                <button id="commentBtn" class="btn btn-primary">Сэтгэгдэл үлдээх</button>
+            </form>
+            
+            <div id="commentSection" style="justify-content:center;"></div>
+
+        </div>
+        <br/>
+        <link rel="stylesheet" href="~/css/MediaFilePlayer.css" />
+    </body>
+</html>

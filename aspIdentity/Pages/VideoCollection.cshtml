@@ -1,0 +1,25 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity;
+@using aspIdentity.Data.Model;
+@inject SignInManager<AppUser> SignInManager
+@model PrivacyModel
+@{
+   
+}
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/VideoPlayer.css" />
+        <link rel="stylesheet" href="~/css/bootstrap.min.css">
+        <script src="~/js/VideoCollection.js" defer></script>
+    </head>
+    <body>
+        <h1 id="Title" class="Title">Энд таны оруулсан бичлэгнүүд байх болно</h1>
+
+        <button class="btn btn-primary mb-2" id="AddVideoBtn">Бичлэгэн файл нэмэх</button>
+
+        <button class="btn btn-primary mb-2" id="AddLinkBtn">Youtube-ийн холбоос нэмэх</button>
+
+        <div id="videosContainer" style="width:100%; height:auto" class="videosContainer">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+﻿body {
+}
+
+.inputAndBtn {
+    display: column;
+    flex-direction: row;
+    justify-self: center;
+}
+
+#commentInput {
+    width:900px;
+}
+
+#commentBtn {
+    margin-top:10px;
+}

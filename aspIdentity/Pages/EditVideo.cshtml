@@ -1,0 +1,42 @@
+﻿@page 
+@model aspIdentity.Pages.EditVideoModel
+@{
+}
+<h1>Бичлэг засварлах</h1>
+<div class="container">
+    <div class="col-sm-12 col-md-12 col-lg-4">
+        <a asp-page="/VideoCollection" class="link">Бичлэгний цуглуулгаруу буцах</a>
+        <br />
+        <form method="post" enctype="multipart/form-data">
+            
+            <div style="display:none">
+                <input id="idInput" class="form-control" type="text" asp-for="Model.id" name="ID" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Бичлэгний нэр</label>
+                <input id="titleInput" class="form-control" type="text" asp-for="Model.Title" />
+                <span class="text-danger" asp-validation-for="Model.Title" ></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Бичлэг</label>
+                <br />
+                <video id="videoEl" style=" border:solid 1px black"></video>
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <textarea class="form-control" placeholder="Бичлэгний тайлбар бичих хэсэг" 
+                rows="5" id="textAreaInput" asp-for="Model.Description"></textarea>
+            </div>
+
+            <div class="mt-3">
+                <button type="submit" id="saveChangesBtn" class="btn btn-primary" asp-page-handler="SaveChanges">Save Changes</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="~/js/EditVideo.js"></script>

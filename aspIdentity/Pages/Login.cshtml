@@ -1,0 +1,37 @@
+﻿@page
+@model aspIdentity.Pages.LoginModel
+@{
+}
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-12 col-md-12 col-lg-4">
+            <h1 class="mb-3">Нэвтэрч орох</h1>
+            
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Model.Email">И-майл хаяг</label>
+                    <input type="text" asp-for="Model.Email" class="form-control" />
+                    <span asp-validation-for="Model.Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Model.Password">Нууц үг</label>
+                    <input type="text" asp-for="Model.Password" class="form-control" />
+                    <span asp-validation-for="Model.Password" class="text-danger"></span>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" asp-for="Model.RememberMe" class="form-check-input" />
+                    <label class="form-check-label" asp-for="Model.RememberMe">Намайг санах?</label>
+                </div>
+                <div class="mb-1">
+                    <button type="submit" class="btn btn-primary">Нэвтэрч орох</button>
+                </div>
+                @if (!string.IsNullOrEmpty(ViewData["Message"] as string))
+                {
+                    <div class="alert alert-warning" role="alert">
+                        @ViewData["Message"]
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>
